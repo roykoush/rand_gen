@@ -1,7 +1,7 @@
 # rand_gen
 Pseudo Random generator!
 
-Uhh, I would def add the physics stuff here for dictionary and dictionary purpose.
+Uhh, I would def add the physics stuff here for dictionary purposes.
 But for now, its pretty clear that you must install the time libraries and ig some permission must be given. 
 
 Always shows this in my window, although it works okay:
