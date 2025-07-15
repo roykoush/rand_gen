@@ -44,6 +44,7 @@ These validate its nature as harvested, not simulated, randomness.
 The Bell-type simulation in this project is not intended to violate Bell's inequality or test the foundations of quantum mechanics. Rather, it serves a different purpose: to **statistically validate the non-deterministic and pseudo-random nature** of the human-derived entropy extracted from keystroke intervals.
 
 In quantum theory, when two entangled qubits are measured at different angles θₐ and θ_b, the probability that both measurements yield the same result is given as:
+
 $$
 P_{\text{match}} = \cos^2\left(\frac{\theta_a - \theta_b}{2}\right)
 $$
