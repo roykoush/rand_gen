@@ -55,7 +55,6 @@ In our simulation, this expected value is used to **bias a pair of binary outcom
 - A float `x` from the entropy pool is compared to `P_match`.
 - If `x < P_match`, the simulation enforces a match between `a` and `b`.
 - Otherwise, a mismatch is assigned.
-- A second float `y` determines the specific values (0 or 1) to avoid fixed output patterns.
 
 This Monte Carlo method requires that `x` be **uniformly and unpredictably sampled** from the interval [0, 1] in order for the outcome statistics to converge to theory over many trials. **If the entropy were biased, deterministic, or insufficient**, the simulated match rates would visibly diverge from the theoretical curve.
 
