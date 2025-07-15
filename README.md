@@ -21,13 +21,13 @@ This project investigates whether human cognitive entropy can serve as a valid, 
 
 (2) generating secure, deterministic passwords.
 
-### Using time-variations between keystrokes
+### Data Source 1: Using time-variations between keystrokes
 
 Instead of relying on standard randomness libraries like Python’s `random` or hardware RNGs, this project extracts entropy from the last few decimal digits of each keypress interval, which are assumed to carry the most unpredictable and personal motor/cognitive noise. 
 
-### Web-cam Static
+### Data Source 2: Web-cam Static a.k.a Visual Entropy
 
-### Experiments
+### Experiments: Overview
 **In the Bell simulation**, the entropy is used to decide whether outcomes match or mismatch, based on angle differences (which may vary between runs). The key result is that the simulated match rates consistently follow theoretical expectations from quantum mechanics, proving that human-derived entropy can statistically behave like quantum randomness. It validates the quality of the entropy.
 
 **In the password generator**, the same entropy is used to create secure, strong passwords. SHA-256 hashes are converted into characters from uppercase, lowercase, digits, and symbols. These digit strings are then hashed using SHA-256 to whiten and spread the entropy evenly, making it suitable for structured uses. The output is balanced (at least one from each class) and shuffled deterministically using the entropy itself (not external randomness). The default output is 16 characters, because 95^16 combinations provide over 10^30 possible outcomes — more than sufficient for real-world use. Users can truncate or expand as needed; the system supports variable lengths depending on application.
@@ -65,6 +65,32 @@ Furthermore, the simulation is sensitive to entropy exhaustion: once the keystro
 
 Thus, the quantum experiment serves as a **statistical validator** of the entropy’s non-determinism. While it remains classical and Bell-inequality-compliant by design, the experiment affirms that the randomness observed is not simulated or injected, but **harvested from a finite, external, user-specific source**.
 
+### Password Generation Process Using Human-Derived Entropy
+
+The password generator leverages the same finite pool of entropy extracted from keystroke timing intervals to produce secure, reproducible passwords tailored to each user-device environment. This process comprises several key stages designed to maximize entropy utilization while ensuring practical usability and cryptographic robustness:
+
+1. **Entropy Sampling**  
+   A contiguous slice of 12 floating-point values, each normalized to the interval [0, 1], is extracted sequentially from the keystroke-derived entropy pool. These floats serve as the fundamental randomness source for one password generation iteration. The pool is finite and depleted progressively with each new password.
+
+2. **Hash-Based Whitening**  
+   To mitigate biases and correlations inherent in raw timing data, the slice is processed through the SHA-256 cryptographic hash function. This step distributes entropy uniformly across the output bits, enhancing unpredictability and eliminating detectable structure within the input.
+
+3. **Character Class Mapping**  
+   The 256-bit hash output is segmented and mapped deterministically to characters drawn from four distinct classes: uppercase letters, lowercase letters, digits, and symbols. The generator enforces the inclusion of at least one character from each class to comply with common password complexity requirements.
+
+4. **Deterministic Shuffling**  
+   The final character sequence undergoes a deterministic shuffle process driven by additional entropy floats from the same pool. This rearrangement further obfuscates any residual ordering patterns while preserving reproducibility on the original device.
+
+5. **Length Flexibility and Security**  
+   The default output length is 16 characters, selected to yield a search space exceeding \(95^{16} \approx 10^{31}\) combinations, which is considered cryptographically strong against brute-force attacks. Users can specify different lengths, with the generator adjusting entropy slice usage accordingly.
+
+6. **Reproducibility and Device-Specificity**  
+   Due to the dependence on the exact sequence of entropy floats from a finite, device- and user-specific pool, the same password can be regenerated reliably on the original device given the same keystroke history. Conversely, different devices or users yield distinct password outputs, reinforcing personalized security.
+
+7. **Entropy Exhaustion and Limitations**  
+   The generator’s entropy pool is exhaustible; empirical observation shows cessation of password production after approximately 2,474 iterations with a 29,736-point float pool. This finite nature differentiates the system from standard software PRNGs with effectively infinite periods, imposing operational limits and necessitating entropy replenishment for sustained use.
+
+   
 **Why this is original:**
 
 * It uses a unique, fully human-derived entropy source.
