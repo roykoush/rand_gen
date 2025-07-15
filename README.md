@@ -15,15 +15,29 @@ Added the log size just to keep track of the change.
 
 
 # The Reasons
-This project investigates whether human cognitive entropy — specifically, timing variations between keystrokes — can serve as a valid, measurable, and reusable source of randomness for two distinct applications: (1) simulating quantum statistical behavior (via Bell-type tests) and (2) generating secure, deterministic passwords.
+This project investigates whether human cognitive entropy can serve as a valid, measurable, and reusable source of randomness for two distinct applications: 
 
-Instead of relying on standard randomness libraries like Python’s `random` or hardware RNGs, this project extracts entropy from the last few decimal digits of each keypress interval, which are assumed to carry the most unpredictable and personal motor/cognitive noise. These digit strings are then hashed using SHA-256 to whiten and spread the entropy evenly, making it suitable for structured uses.
+(1) simulating quantum statistical behavior (via Bell-type tests) and 
 
-**In the Bell simulation**, the entropy is used to decide whether outcomes match or mismatch, based on angle differences (which may vary between runs). The key result is that the simulated match rates consistently follow theoretical expectations from quantum mechanics, proving that human-derived entropy can statistically behave like quantum randomness. It validates the quality of the entropy without needing to prove or reproduce a fixed number like 91.4%.
+(2) generating secure, deterministic passwords.
 
-**In the password generator**, the same entropy is used to create secure, strong passwords. SHA-256 hashes are converted into characters from uppercase, lowercase, digits, and symbols. The output is balanced (at least one from each class) and shuffled deterministically using the entropy itself (not external randomness). The default output is 16 characters, because 95^16 combinations provide over 10^30 possible outcomes — more than sufficient for real-world use. Users can truncate or expand as needed; the system supports variable lengths depending on application.
+### Using time-variations between keystrokes
 
-The password generator uses slices of 12 floats at a time. Each new run uses the next slice, making each password different — but still reproducible on the same device. On a different device or with a different user, the same logic yields completely different outputs, proving that the entropy is **user- and machine-specific**. Importantly, the entropy is finite and depletes with use. For example, the system stopped generating new passwords after 2,478 iterations when a float pool of 29,736 data points was exhausted — a behavior no PRNG exhibits. This validates its nature as harvested, not simulated, randomness.
+Instead of relying on standard randomness libraries like Python’s `random` or hardware RNGs, this project extracts entropy from the last few decimal digits of each keypress interval, which are assumed to carry the most unpredictable and personal motor/cognitive noise. 
+
+### Web-cam Static
+
+### Experiments
+**In the Bell simulation**, the entropy is used to decide whether outcomes match or mismatch, based on angle differences (which may vary between runs). The key result is that the simulated match rates consistently follow theoretical expectations from quantum mechanics, proving that human-derived entropy can statistically behave like quantum randomness. It validates the quality of the entropy.
+
+**In the password generator**, the same entropy is used to create secure, strong passwords. SHA-256 hashes are converted into characters from uppercase, lowercase, digits, and symbols. These digit strings are then hashed using SHA-256 to whiten and spread the entropy evenly, making it suitable for structured uses. The output is balanced (at least one from each class) and shuffled deterministically using the entropy itself (not external randomness). The default output is 16 characters, because 95^16 combinations provide over 10^30 possible outcomes — more than sufficient for real-world use. Users can truncate or expand as needed; the system supports variable lengths depending on application.
+
+The password generator uses slices of 12 floats at a time. Each new run uses the next slice, making each password different — but still reproducible on the same device. 
+
+On a different device or with a different user, the same logic yields completely different outputs, proving that the entropy is **user- and machine-specific**. Importantly, the entropy is finite and depletes with use. For example, the system stopped generating new passwords after 2,474 iterations when a float pool of 29,736 data points was exhausted — a behavior no PRNG exhibits. Additionaly, Bell's inequality has been run on the predicted outcomes, thus proving the pseudo nature of this randomness: a inherently classical system at the core.
+
+
+These validate its nature as harvested, not simulated, randomness.
 
 **Why this is original:**
 
