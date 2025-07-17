@@ -3,23 +3,28 @@ import time
 import threading
 import os
 
-
-
-l_f = "key_timings.log"
-l_t = None
+log_file = "key_timings.log"
+last_time = None
 lock = threading.Lock()
 
+
+with open(log_file, "a") as f:
+    pass  
+
 def on_press(key):
-    global l_t
+    global last_time
     now = time.time()
     with lock:
-        if l_t is not None:
-            d = now - l_t
-            with open(l_f, "a") as f:
-                f.write(f"{d:.6f}\n")
-        l_t = now
+        if last_time is not None:
+            dt = now - last_time
+            with open(log_file, "a") as f:
+                f.write(f"{dt:.6f}\n")
+        last_time = now
+
+print("Logger started.")
+print(f"Logging to: {log_file}")
+print(f"Current size: {os.path.getsize(log_file) / 1024:.2f} KB")
 
 with keyboard.Listener(on_press=on_press) as listener:
-    print("ok.")
-    print(f"Log size: {os.path.getsize('key_timings.log') / 1024:.2f} KB")
     listener.join()
+er.join()
