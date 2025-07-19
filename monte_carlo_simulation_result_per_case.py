@@ -1,3 +1,22 @@
+with open("key_timings.log", "r") as f:
+    tmng = []
+    for _ in f:
+        if _.strip():             
+            tmng.append(float(_.strip())) 
+
+#extracting last digs
+last_digits = []
+for t in tmng:
+    fr_str = str(t).split(".")[1]  
+    dig = fr_str[-4:]  
+
+    last_digits.append(int(dig))
+fl = [round(d / 9999, 4) for d in last_digits]
+
+with open("keystroke_floats.txt", "w") as f:
+    for val in fl:
+        f.write(f"{val}\n")
+
 import math, random
 
 # Parameters
