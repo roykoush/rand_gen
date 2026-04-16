@@ -4,7 +4,7 @@ This repository contains the source code, raw dataset used for testing and bell 
 
 ### Contents
 - **`harvest/`**: Keystroke interval harvester and logger implementation which runs as a background daemon so you might have to give accessibility permissions to run the program, depending on your machine
-- **`simulations/`**: Monte Carlo simulation script for bell curve generation.
+- **`simulations/`**: Monte Carlo simulation script for curve generation and compare with the real graph.
 - **`sample_data/`**: Sample dataset used for the experimental results.
 
 ### **Prerequisites**
@@ -12,6 +12,13 @@ To run these scripts, you need the following libraries (ofc, you already should 
 
 1. **pynput**
 2. **matplotlib**
+
+### Entangled inspired correlation Monte Carlo simulation of the Alice and Bob detector experiment
+
+The working of the simulation is based on the following algorithm:
+
+<img width="466" height="565" alt="Screenshot 2026-04-16 at 11 14 23 PM" src="https://github.com/user-attachments/assets/84836a86-ec0a-4b2e-86c0-d394bc6a2b2f" />
+
 
 ### Full Documentation
 For the complete methodology please refer to the **preprint** archived on Zenodo at [https://zenodo.org/records/18637817].
