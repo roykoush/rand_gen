@@ -10,5 +10,5 @@ Number Generators"**.
 - **`data/`**: Sample datasets used for the experimental results.
 
 ### Full Documentation
-For the complete methodology, statistical analysis, and peer-review proof, please refer to the **preprint** archived on Zenodo at [https://zenodo.org/records/18637817].
+For the complete methodology please refer to the **preprint** archived on Zenodo at [https://zenodo.org/records/18637817].
 
