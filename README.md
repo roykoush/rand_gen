@@ -13,7 +13,7 @@ To run these scripts, you need the following libraries (ofc, you already should 
 1. **pynput**
 2. **matplotlib**
 
-### Entangled inspired correlation Monte Carlo simulation of the Alice and Bob detector experiment
+### Entanglement inspired correlation Monte Carlo simulation of the Alice and Bob detector experiment
 
 The working of the simulation is made on the following algorithm (src - linked below in documentation):
 
