@@ -32,10 +32,10 @@ print(f"Expected match: {exp * 100:.2f}%")
 seq = 2 * n  # = 4000 values per run
 if len(fl) < seq:
     print("Entropy list too small.")
-    exit() #nice new word, would have saved A LOT of trouble in the parking program last yr
+    exit() 
 
 g = 0
-#marco polo model
+#monte carlo model
 for i in range(runs):
     # Random start index that gives enough space for 4000 values
     start = random.randint(0, len(fl) - seq)
