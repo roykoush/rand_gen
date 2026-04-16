@@ -1,15 +1,11 @@
-# rand_gen - Code Repository
+# rand_gen 
 
-This repository contains the source code, raw dataset used for testing and bell curve simulation associated with the preprint: **"A Statistical Benchmarking of Keystroke Entropy
-Pools Versus State-of-the-Art Software Random
-Number Generators"**.
-
--- The tests run on the data to test its randomness were all standard programs so not inclluded in this repo --
+This repository contains the source code, raw dataset used for testing and bell curve simulation associated with the preprint: **"A Statistical Benchmarking of Keystroke Entropy Pools Versus State-of-the-Art Software Random Number Generators"**.
 
 ### Contents
 - **`harvest/`**: Keystroke interval harvester and logger implementation which runs as a background daemon so you might have to give accessibility permissions to run the program, depending on your machine
 - **`simulations/`**: Monte Carlo simulation script for bell curve generation.
-- **`data/`**: Sample datasets used for the experimental results.
+- **`sample_data/`**: Sample dataset used for the experimental results.
 
 ### **Prerequisites**
 To run these scripts, you need the following libraries (ofc, you already should have Python 3.10 or later):
@@ -19,4 +15,7 @@ To run these scripts, you need the following libraries (ofc, you already should 
 
 ### Full Documentation
 For the complete methodology please refer to the **preprint** archived on Zenodo at [https://zenodo.org/records/18637817].
+
+-- As part of the paper as a whole, tests were run on the data. The tests were all standard programs so not included in this repo --
+
 
