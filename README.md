@@ -15,7 +15,7 @@ To run these scripts, you need the following libraries (ofc, you already should 
 
 ### Entangled inspired correlation Monte Carlo simulation of the Alice and Bob detector experiment
 
-The working of the simulation is based on the following algorithm:
+The working of the simulation is made on the following algorithm (src - linked below in documentation):
 
 <img width="466" height="565" alt="Screenshot 2026-04-16 at 11 14 23 PM" src="https://github.com/user-attachments/assets/84836a86-ec0a-4b2e-86c0-d394bc6a2b2f" />
 
