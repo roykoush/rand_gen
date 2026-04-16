@@ -1,8 +1,8 @@
 # rand_gen - Code Repository
 
-This repository contains the source code, raw dataset used for testing and bell curve simulation associated with the preprint: **"[A Statistical Benchmarking of Keystroke Entropy
+This repository contains the source code, raw dataset used for testing and bell curve simulation associated with the preprint: **"A Statistical Benchmarking of Keystroke Entropy
 Pools Versus State-of-the-Art Software Random
-Number Generators]"**.
+Number Generators"**.
 
 ### Contents
 - **`harvest/`**: Keystroke interval harvester and logger implementation which runs as a background daemon so you might have to give permissions to run the program
