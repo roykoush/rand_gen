@@ -17,6 +17,41 @@ To run these scripts, you need the following libraries (ofc, you already should 
 1. **pynput**
 2. **matplotlib**
 
+### To make use of the keystroke data log file
+
+In the intervals obtained, the least significant digits are the most unreliable hence, random. The interval values extend till 6 decimal places. But I took the last 4 (Why 4? Why not 3? That is something I decided on based on the sweet spot between 'too deterministic' and 'too few options'). 
+
+
+So I had 9999 maximum possible INT options. But in the project, I was comparing with standard python random number generators like random library. So I had to convert the integers into floats in [0,1). Otherwise the comparison would not have been fair. On a side note, I also noticed this made my numbers 'denser' and produced better correlations.  
+
+
+```python
+with open("key_timings-1.log", "r") as f:
+    tmng = []
+    for _ in f:
+        if _.strip():             
+            tmng.append(float(_.strip())) 
+
+
+#extracting last digs
+last_digits = []
+for t in tmng:
+    fr_str = str(t).split(".")[1]  
+    dig = fr_str[-4:]  
+
+    last_digits.append(int(dig))
+
+
+fl = [round(d / 9999, 4) for d in last_digits]
+
+
+with open("keystroke_floats.txt", "w") as f:
+    for val in fl:
+        f.write(f"{val}\n")
+```
+So, the .txt file becomes the one being used in the simulation.
+
+
 ### Entanglement inspired correlation Monte Carlo simulation of the Alice and Bob detector experiment
 
 The working of the simulation is made on the following algorithm (src - linked below in documentation):
