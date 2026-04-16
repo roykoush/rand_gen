@@ -1,4 +1,4 @@
-# [Project Title] - Code Repository
+# [rand_gen] - Code Repository
 
 This repository contains the source code, raw dataset used for testing and bell curve simulation associated with the preprint: **"[A Statistical Benchmarking of Keystroke Entropy
 Pools Versus State-of-the-Art Software Random
