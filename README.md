@@ -60,7 +60,8 @@ The working of the simulation:
 
 <img width="466" height="565" alt="Screenshot 2026-04-16 at 11 14 23 PM" src="https://github.com/user-attachments/assets/84836a86-ec0a-4b2e-86c0-d394bc6a2b2f" />
 
-In my program, I have used run indices that might look random to your eyes but as a whole they can be taken as artifacts related to my dataset (the one attached in `sample_data/` and can freely be changed (is encouraged, if you want to see how much is 'too little' and how much is 'just right' and if you make it too big, the thing becomes redundant as in they reuse points too aggressively so that is not good either)
+
+In my program, I have used run indices that might look random to your eyes but as a whole they can be taken as artifacts related to my dataset (the one attached in `sample_data/`) and can freely be changed (is encouraged, if you want to see how much is 'too little' and how much is 'just right' and if you make it too big, the thing becomes redundant as in they reuse points too aggressively so that is not good either)
 
 
 ### Full Documentation
