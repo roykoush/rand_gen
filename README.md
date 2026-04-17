@@ -29,7 +29,7 @@ To run these scripts, you need the following libraries (ofc, you already should 
 In the intervals obtained, the least significant digits are the most unreliable hence, random. The interval values extend till 6 decimal places. But I took the last 4 (Why 4? Why not 3? That is something I decided on based on the sweet spot between 'too deterministic' and 'too few options'). 
 
 
-So I had 9999 maximum possible INT options. But in the project, I was comparing with standard python random number generators like random library. So I had to convert the integers into floats in [0,1). Otherwise the comparison would not have been fair. On a side note, I also noticed this made my numbers 'denser' and produced better correlations.  
+So I had 9999 maximum possible INT options. But in the project, I was comparing with standard python random number generators like random library. So I had to convert the integers into floats in [0,1). Otherwise the comparison would not have been fair.   
 
 
 ```python
