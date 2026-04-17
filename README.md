@@ -5,9 +5,11 @@ This repository contains the source code, raw dataset used for testing and bell 
 ### Contents
 - **`harvest/`**: Keystroke interval harvester and logger implementation which runs as a background daemon so you might have to give accessibility permissions to run the program, depending on your machine
 - **`simulations/`**: Monte Carlo simulation script for curve generation and compare with the real graph.
-  - The code has been divided into two parts: (i) Monte carlo simulation result (unimpressive plain text probabilities)
+  - The code has been divided into two parts:
+       - (i) Monte carlo simulation result per case (unimpressive plain text probabilities)
 
-    (ii) plotting the values y vs x on a graph 
+       - (ii) curve generation
+    
 - **`sample_data/`**: Sample dataset used for the experimental results.
   
 
