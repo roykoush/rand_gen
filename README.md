@@ -9,6 +9,11 @@ This repository contains the source code, raw dataset used for testing and bell 
        - (i) Monte carlo simulation result per case (unimpressive plain text probabilities)
 
        - (ii) curve generation
+
+<img width="774" height="431" alt="Screenshot 2026-04-17 at 9 20 04 AM" src="https://github.com/user-attachments/assets/c0ef6bb9-0626-48fb-8f44-8bc537c68404" />
+
+Above: Sample curve generated
+
     
 - **`sample_data/`**: Sample dataset used for the experimental results.
   
