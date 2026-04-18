@@ -1,7 +1,7 @@
 import math, random
 import matplotlib.pyplot as plt
 
-# Parameters
+# Parameters, adjust according to preference or put user-input
 n = 5000   # pairs per run
 runs = 10  # runs per angle
 step = 5   # degree step
@@ -12,7 +12,7 @@ measured = []
 
 req_seq = 2 * n
 
-# Check entropy size
+# Checking entropy size
 if len(fl) < req_seq:
     print("Entropy list too small.")
     exit()
@@ -47,7 +47,7 @@ for theta in angles:
     avg = g / runs
     measured.append(avg)
 
-# Plotting
+# Plotting the curve finally
 plt.figure(figsize=(10, 6))
 plt.plot(angles, theort_, label='Quantum Prediction (cos²)', color='teal', linewidth=1.5)
 plt.plot(angles, measured, label='Measured from Entropy', color='coral', linestyle='--', marker='o')
